@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // @ts-ignore - Ignoring type error to force Next.js 15+ to hide the build activity indicator
   devIndicators: {
+    // @ts-ignore - Ignorando o erro de tipo da propriedade appIsrStatus no Next.js 15+
     appIsrStatus: false,
     buildActivity: false,
   },
