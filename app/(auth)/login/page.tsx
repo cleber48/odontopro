@@ -132,7 +132,7 @@ export default function AuthPage() {
                     <input 
                       type="text"
                       required={!isLogin}
-                      onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Requerido')}
+                      onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Campo obrigatório')}
                       onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
                       placeholder="Dr. João Silva" 
                       className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm font-medium text-zinc-900 bg-zinc-50/50 hover:bg-zinc-50 transition-all placeholder:text-zinc-400 shadow-sm"
@@ -147,7 +147,7 @@ export default function AuthPage() {
                     <input 
                       type="tel"
                       required={!isLogin}
-                      onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Requerido')}
+                      onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Campo obrigatório')}
                       onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
                       placeholder="(00) 00000-0000" 
                       className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm font-medium text-zinc-900 bg-zinc-50/50 hover:bg-zinc-50 transition-all placeholder:text-zinc-400 shadow-sm"
@@ -165,7 +165,7 @@ export default function AuthPage() {
                 <input 
                   type="email"
                   required
-                  onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Requerido')}
+                  onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Campo obrigatório')}
                   onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
                   placeholder="contato@clinica.com.br" 
                   className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm font-medium text-zinc-900 bg-zinc-50/50 hover:bg-zinc-50 transition-all placeholder:text-zinc-400 shadow-sm"
@@ -202,7 +202,7 @@ export default function AuthPage() {
                             <input 
                               type="email"
                               required
-                              onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Requerido')}
+                              onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Campo obrigatório')}
                               onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
                               placeholder="contato@clinica.com.br" 
                               className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm font-medium text-zinc-900 bg-zinc-50/80 hover:bg-zinc-50 transition-all placeholder:text-zinc-400 shadow-sm"
