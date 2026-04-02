@@ -45,9 +45,9 @@ export default function MeusAgendamentos() {
                 Novo Agendamento
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[500px] p-8 rounded-3xl">
+            <DialogContent className="w-[95vw] sm:max-w-[500px] p-6 sm:p-8 rounded-3xl max-h-[90vh] overflow-y-auto">
               <DialogHeader className="mb-6">
-                <DialogTitle className="text-2xl font-extrabold text-zinc-900">Agendar Consulta</DialogTitle>
+                <DialogTitle className="text-xl sm:text-2xl font-extrabold text-zinc-900">Agendar Consulta</DialogTitle>
                 <DialogDescription className="text-base text-zinc-600 font-medium mt-1">
                   Escolha o especialista e o melhor horário para você.
                 </DialogDescription>
@@ -68,7 +68,7 @@ export default function MeusAgendamentos() {
                     <option>Urgência / Dor de Dente</option>
                   </select>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-2">
                     <label className="text-sm font-bold text-zinc-900">Data sugerida</label>
                     <input type="date" className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-base text-zinc-700 shadow-sm" />
@@ -95,18 +95,18 @@ export default function MeusAgendamentos() {
         
         <div className="bg-white rounded-3xl border border-zinc-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
           <div className="p-6 sm:p-8 border-b border-zinc-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-            <div className="flex items-center gap-5">
-              <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center shrink-0 border border-emerald-100 shadow-sm">
-                <Calendar className="w-7 h-7" />
+            <div className="flex items-center gap-4 sm:gap-5">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center shrink-0 border border-emerald-100 shadow-sm">
+                <Calendar className="w-6 h-6 sm:w-7 sm:h-7" />
               </div>
               <div>
-                <p className="text-xs font-black text-emerald-600 uppercase tracking-wider mb-1">Próxima Consulta</p>
-                <h3 className="text-xl font-extrabold text-zinc-900">Dr. Luis Felipe</h3>
-                <p className="text-zinc-500 font-semibold text-sm">Limpeza Profissional (Profilaxia)</p>
+                <p className="text-[10px] sm:text-xs font-black text-emerald-600 uppercase tracking-wider mb-1">Próxima Consulta</p>
+                <h3 className="text-lg sm:text-xl font-extrabold text-zinc-900">Dr. Luis Felipe</h3>
+                <p className="text-zinc-500 font-semibold text-xs sm:text-sm">Limpeza Profissional (Profilaxia)</p>
               </div>
             </div>
             
-            <div className="flex flex-col gap-2.5 bg-zinc-50 p-5 rounded-2xl border border-zinc-100 min-w-[220px]">
+            <div className="flex flex-col gap-2.5 bg-zinc-50 p-5 rounded-2xl border border-zinc-100 w-full sm:w-auto sm:min-w-[220px]">
               <div className="flex items-center gap-3 text-sm font-bold text-zinc-700 whitespace-nowrap">
                 <Calendar className="w-4 h-4 text-emerald-500" />
                 31 de Outubro, 2025
@@ -118,21 +118,21 @@ export default function MeusAgendamentos() {
             </div>
           </div>
           
-          <div className="bg-zinc-50/50 px-6 sm:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-             <p className="flex items-center justify-center gap-2 text-sm font-bold text-zinc-600">
-               <MapPin className="w-4 h-4 text-zinc-400" />
-               Rua 10, nº10, Centro, Formosa, GO
+          <div className="bg-zinc-50/50 px-6 sm:px-8 py-5 flex flex-col lg:flex-row items-center justify-between gap-5 lg:gap-4">
+             <p className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-1 sm:gap-2 text-sm font-bold text-zinc-600 w-full lg:w-auto text-center sm:text-left">
+               <MapPin className="w-5 h-5 sm:w-4 sm:h-4 text-zinc-400 shrink-0" />
+               <span>Rua 10, nº10, Centro, Formosa, GO</span>
              </p>
-             <div className="flex gap-3 w-full sm:w-auto">
+             <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
                <Dialog>
                  <DialogTrigger asChild>
                    <Button variant="outline" className="w-full sm:w-auto border-zinc-300 text-zinc-700 hover:bg-zinc-100 font-bold h-10 px-6 rounded-lg transition-colors hover:border-zinc-400">
                      Reagendar
                    </Button>
                  </DialogTrigger>
-                 <DialogContent className="sm:max-w-100 p-8 rounded-3xl">
+                 <DialogContent className="w-[95vw] sm:max-w-[500px] p-6 sm:p-8 rounded-3xl max-h-[90vh] overflow-y-auto">
                    <DialogHeader className="mb-4">
-                     <DialogTitle className="text-2xl font-extrabold text-zinc-900">Reagendar Consulta</DialogTitle>
+                     <DialogTitle className="text-xl sm:text-2xl font-extrabold text-zinc-900">Reagendar Consulta</DialogTitle>
                      <DialogDescription className="text-base text-zinc-600 font-medium">
                        Escolha uma nova data e horário.
                      </DialogDescription>
@@ -165,9 +165,9 @@ export default function MeusAgendamentos() {
                      Cancelar
                    </Button>
                  </AlertDialogTrigger>
-                 <AlertDialogContent className="rounded-3xl sm:max-w-100">
+                 <AlertDialogContent className="w-[95vw] rounded-3xl sm:max-w-[500px] p-6 sm:p-8">
                     <AlertDialogHeader>
-                      <AlertDialogTitle className="text-xl font-extrabold">Cancelar Agendamento?</AlertDialogTitle>
+                      <AlertDialogTitle className="text-lg sm:text-xl font-extrabold">Cancelar Agendamento?</AlertDialogTitle>
                       <AlertDialogDescription className="text-base text-zinc-600 font-medium">
                         Tem certeza? Esta ação cancelará sua consulta com o Dr. Luis Felipe e disponibilizará o horário para outros pacientes.
                       </AlertDialogDescription>
