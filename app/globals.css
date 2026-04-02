@@ -128,3 +128,8 @@
     @apply font-sans;
   }
 }
+
+/* Ocultar o indicador de compilação do Next.js (bolinha preta com "N") */
+nextjs-portal {
+  display: none !important;
+}
