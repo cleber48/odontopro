@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowLeft, Mail, Lock, User, Phone, CheckCircle2, ChevronRight, Send } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,19 @@ import { cn } from "@/lib/utils";
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
+  const [recoverOpen, setRecoverOpen] = useState(false);
+  const router = useRouter();
+
+  const handleAuth = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Após preencher os campos com sucesso, redireciona o usuário
+    router.push("/dashboard");
+  };
+
+  const handleRecover = (e: React.FormEvent) => {
+    e.preventDefault();
+    setRecoverOpen(false);
+  };
 
   return (
     <div className="h-screen w-full bg-zinc-50 flex overflow-hidden">
@@ -107,7 +121,7 @@ export default function AuthPage() {
           </div>
 
           {/* Form Container with relative positioning for simple cross-fade if needed */}
-          <form className="flex flex-col gap-5">
+          <form className="flex flex-col gap-5" onSubmit={handleAuth}>
             {/* Conditional Fields for Registration */}
             {!isLogin && (
               <div className="flex flex-col gap-5 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -118,6 +132,8 @@ export default function AuthPage() {
                     <input 
                       type="text"
                       required={!isLogin}
+                      onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Requerido')}
+                      onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
                       placeholder="Dr. João Silva" 
                       className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm font-medium text-zinc-900 bg-zinc-50/50 hover:bg-zinc-50 transition-all placeholder:text-zinc-400 shadow-sm"
                     />
@@ -131,6 +147,8 @@ export default function AuthPage() {
                     <input 
                       type="tel"
                       required={!isLogin}
+                      onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Requerido')}
+                      onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
                       placeholder="(00) 00000-0000" 
                       className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm font-medium text-zinc-900 bg-zinc-50/50 hover:bg-zinc-50 transition-all placeholder:text-zinc-400 shadow-sm"
                     />
@@ -147,6 +165,8 @@ export default function AuthPage() {
                 <input 
                   type="email"
                   required
+                  onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Requerido')}
+                  onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
                   placeholder="contato@clinica.com.br" 
                   className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm font-medium text-zinc-900 bg-zinc-50/50 hover:bg-zinc-50 transition-all placeholder:text-zinc-400 shadow-sm"
                 />
@@ -157,13 +177,14 @@ export default function AuthPage() {
               <div className="flex items-center justify-between">
                 <label className="text-sm font-extrabold text-zinc-800">Senha</label>
                 {isLogin && (
-                  <Dialog>
+                  <Dialog open={recoverOpen} onOpenChange={setRecoverOpen}>
                     <DialogTrigger asChild>
                       <button type="button" className="text-xs font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg transition-colors border border-emerald-100/50">
                         Esqueceu sua senha?
                       </button>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-md p-8 sm:p-10 rounded-[32px] border border-zinc-100 shadow-2xl">
+                      <form onSubmit={handleRecover}>
                       <DialogHeader className="mb-4">
                         <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mb-6 ring-8 ring-emerald-50/50 mx-auto sm:mx-0">
                           <Lock className="w-8 h-8 text-emerald-500" />
@@ -181,6 +202,8 @@ export default function AuthPage() {
                             <input 
                               type="email"
                               required
+                              onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Requerido')}
+                              onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
                               placeholder="contato@clinica.com.br" 
                               className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm font-medium text-zinc-900 bg-zinc-50/80 hover:bg-zinc-50 transition-all placeholder:text-zinc-400 shadow-sm"
                             />
@@ -188,13 +211,12 @@ export default function AuthPage() {
                         </div>
                       </div>
                       <DialogFooter className="mt-8 sm:justify-center w-full">
-                        <DialogClose asChild>
-                          <Button type="button" className="w-full text-white font-extrabold text-base h-14 rounded-xl transition-all active:scale-95 bg-linear-to-r from-emerald-400 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-[0_8px_20px_-6px_rgba(0,0,0,0.15)] focus:ring-2 focus:ring-emerald-500 border-0 flex items-center justify-center gap-2">
-                            <Send className="w-5 h-5" />
-                            Enviar link de recuperação
-                          </Button>
-                        </DialogClose>
+                        <Button type="submit" className="w-full text-white font-extrabold text-base h-14 rounded-xl transition-all active:scale-95 bg-linear-to-r from-emerald-400 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-[0_8px_20px_-6px_rgba(0,0,0,0.15)] focus:ring-2 focus:ring-emerald-500 border-0 flex items-center justify-center gap-2">
+                          <Send className="w-5 h-5" />
+                          Enviar link de recuperação
+                        </Button>
                       </DialogFooter>
+                      </form>
                     </DialogContent>
                   </Dialog>
                 )}
@@ -204,21 +226,23 @@ export default function AuthPage() {
                 <input 
                   type="password"
                   required
+                  onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Campo obrigatório')}
+                  onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
                   placeholder="••••••••" 
                   className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm font-medium text-zinc-900 bg-zinc-50/50 hover:bg-zinc-50 transition-all placeholder:text-zinc-400 shadow-sm"
                 />
               </div>
             </div>
 
-            <Link href="/dashboard" className="w-full mt-4">
+            <div className="w-full mt-4">
               <Button 
-                type="button" 
+                type="submit" 
                 className="w-full text-white font-extrabold text-base h-14 rounded-xl transition-all active:scale-95 bg-linear-to-r from-emerald-400 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-[0_8px_20px_-6px_rgba(0,0,0,0.15)] hover:shadow-[0_12px_25px_-4px_rgba(0,0,0,0.25)] flex items-center justify-center border-0 gap-2 group"
               >
                 {isLogin ? "Acessar Sistema" : "Criar minha conta grátis"}
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-            </Link>
+            </div>
           </form>
 
           {/* Social Proof beneath form to increase conversion */}
