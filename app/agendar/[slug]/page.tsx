@@ -87,7 +87,7 @@ export default function AgendarProfilePage() {
 
                 <div className="flex items-center justify-center gap-2 text-sm text-zinc-500 font-medium mt-4 pt-4 border-t border-zinc-100">
                   <MapPin className="w-4 h-4 text-emerald-500 shrink-0" strokeWidth={2.5} />
-                  <span>Unidade Centro - Campo Grande, MS</span>
+                  <span>Unidade Centro - Formosa, GO</span>
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ export default function AgendarProfilePage() {
                   <p className="text-emerald-600 font-bold text-sm">{professional.role}</p>
                   <div className="flex items-center gap-1.5 mt-2 text-xs font-bold text-zinc-600">
                     <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                    {professional.rating} <span className="font-normal text-zinc-400 block ml-1">• Campo Grande, MS</span>
+                    {professional.rating} <span className="font-normal text-zinc-400 block ml-1">• Formosa, GO</span>
                   </div>
                 </div>
              </div>

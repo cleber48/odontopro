@@ -121,7 +121,7 @@ export default function MeusAgendamentos() {
           <div className="bg-zinc-50/50 px-6 sm:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
              <p className="flex items-center justify-center gap-2 text-sm font-bold text-zinc-600">
                <MapPin className="w-4 h-4 text-zinc-400" />
-               Rua 10, nº10, Centro, Campo Grande
+               Rua 10, nº10, Centro, Formosa, GO
              </p>
              <div className="flex gap-3 w-full sm:w-auto">
                <Dialog>

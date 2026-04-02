@@ -35,7 +35,7 @@ export default function ContatoPage() {
               <MapPin className="w-7 h-7" />
             </div>
             <h2 className="text-xl font-bold text-zinc-900">Endereço Físico</h2>
-            <p className="text-zinc-600 font-medium text-lg">Rua 10, nº 10, Centro, Campo Grande - MS</p>
+            <p className="text-zinc-600 font-medium text-lg">Rua 10, nº 10, Centro, Formosa - GO</p>
           </div>
         </div>
 
